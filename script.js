@@ -59,3 +59,39 @@ const findInvalidCards = (arr) => {
 
 console.log(findInvalidCards(batch))
 
+
+// Create a function, idInvalidCardCompanies() that has one parameter for a nested array of invalid numbers and returns an array of companies.
+
+const idInvalidCardCompanies = (arr) => {
+    let companies = [];
+
+    arr.forEach((card) => {
+        switch(card[0]){
+            case 3:
+                if (companies.indexOf('Amex') === -1) {
+                  companies.push('Amex');
+                }
+                break
+              case 4:
+                if (companies.indexOf('Visa') === -1) {
+                  companies.push('Visa');
+                }
+                break
+              case 5:
+                if (companies.indexOf('Mastercard') === -1) {
+                  companies.push('Mastercard');
+                }
+                break
+              case 6:
+                if (companies.indexOf('Discover') === -1) {
+                  companies.push('Discover');
+                }
+                break
+              default:
+                console.log('Company not found');  
+        }
+    })
+    return companies
+}
+
+console.log(idInvalidCardCompanies(batch))
