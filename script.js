@@ -21,3 +21,27 @@ const mystery5 = [4, 9, 1, 3, 5, 4, 0, 4, 6, 3, 0, 7, 2, 5, 2, 3];
 
 // An array of all the arrays above
 const batch = [valid1, valid2, valid3, valid4, valid5, invalid1, invalid2, invalid3, invalid4, invalid5, mystery1, mystery2, mystery3, mystery4, mystery5];
+
+
+// Create a function, validateCred() that has a parameter of an array. The purpose of validateCred() is to return true when an array contains digits of a valid credit card number and false when it is invalid. This function should NOT mutate the values of the original array.
+
+const validateCred = (arr) => {
+    let total = 0;
+    for (let i = arr.length - 1; i >= 0; i--) {
+        let currValue = arr[i] 
+        // arr[i] values in the array
+        // i is the index on each iteration
+        if ((arr.length - 1 - i) % 2 === 1) {
+        currValue *= 2;
+        if (currValue > 9) {
+            currValue -= 9;
+        }
+        }
+        total += currValue;
+        
+    }
+    return total % 10
+}
+
+console.log(validateCred(invalid1))
+
