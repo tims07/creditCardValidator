@@ -40,8 +40,22 @@ const validateCred = (arr) => {
         total += currValue;
         
     }
-    return total % 10
+    return total % 10 === 0;
 }
 
 console.log(validateCred(invalid1))
+
+
+
+// Create another function, findInvalidCards() that has one parameter for a nested array of credit card numbers. The role of findInvalidCards() is to check through the nested array for which numbers are invalid, and return another nested array of invalid cards.
+
+
+const findInvalidCards = (arr) => {
+    let invalidCards = [];
+    arr.forEach(card => !validateCred(card) ? invalidCards.push(card) : null);
+
+    return invalidCards
+}
+
+console.log(findInvalidCards(batch))
 
